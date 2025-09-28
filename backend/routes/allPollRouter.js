@@ -1,6 +1,6 @@
 import express from "express";
 import Poll from "../models/poll.js";
-import Vote from "../models/Vote.js";
+import Vote from "../models/vote.js";
 import auth from "./middleware.js";
 import User from "../models/user.js";
 import userRouter from "./userRouter.js";
