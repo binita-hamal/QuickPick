@@ -19,7 +19,7 @@ function MyPolls() {
         }
 
         const res = await axios.get(
-          `https://quickpick-e70x.onrender.com/createPoll?userId=${storedUser._id}`
+          `https://quickpick-e70x.onrender.com/api/createPoll?userId=${storedUser._id}`
         );
         setMyPolls(res.data);
       } catch (err) {
