@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { TrashIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { API_BASE_URL } from "../config";
+
 
 function MyPolls() {
   const [myPolls, setMyPolls] = useState([]);
@@ -18,7 +20,7 @@ function MyPolls() {
         }
 
         const res = await axios.get(
-          `http://localhost:5000/api/createPoll?userId=${storedUser._id}`
+          `${API_BASE_URL}/createPoll?userId=${storedUser._id}`
         );
         setMyPolls(res.data);
       } catch (err) {
@@ -38,7 +40,7 @@ function MyPolls() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/createPoll/${id}`);
+      await axios.delete(`${API_BASE_URL}/api/createPoll/${id}`);
       setMyPolls((prev) => prev.filter((p) => p._id !== id));
     } catch (error) {
       console.error(error);
