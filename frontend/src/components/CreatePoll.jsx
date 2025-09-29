@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { XMarkIcon, SparklesIcon } from "@heroicons/react/24/solid"; // npm install @heroicons/react
 import axios from "axios";
-import { API_BASE_URL } from "../config";
 
 
 function CreatePoll() {
@@ -44,7 +43,7 @@ function CreatePoll() {
       };
 
       const response = await axios.post(
-        `${API_BASE_URL}/api/createPoll`,
+        `https://quickpick-e70x.onrender.com/api/createPoll`,
         obj
       );
       console.log("poll created", response.data);
@@ -72,7 +71,7 @@ function CreatePoll() {
     setLoading(true);
 
     try {
-      const res = await axios.post(`${API_BASE_URL}/api/gemini`, {
+      const res = await axios.post(`https://quickpick-e70x.onrender.com/api/gemini`, {
         question: titleText,
       });
       console.log("gemini response", res.data.text);

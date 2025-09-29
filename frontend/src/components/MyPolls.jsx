@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { TrashIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { API_BASE_URL } from "../config";
 
 
 function MyPolls() {
@@ -20,7 +19,7 @@ function MyPolls() {
         }
 
         const res = await axios.get(
-          `${API_BASE_URL}/createPoll?userId=${storedUser._id}`
+          `https://quickpick-e70x.onrender.com/createPoll?userId=${storedUser._id}`
         );
         setMyPolls(res.data);
       } catch (err) {
@@ -40,7 +39,7 @@ function MyPolls() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`${API_BASE_URL}/api/createPoll/${id}`);
+      await axios.delete(`https://quickpick-e70x.onrender.com/api/createPoll/${id}`);
       setMyPolls((prev) => prev.filter((p) => p._id !== id));
     } catch (error) {
       console.error(error);
