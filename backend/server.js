@@ -11,7 +11,13 @@ dotenv.config()
 const app = express()
 
 // middleware
-app.use(cors())
+// app.use(cors())
+
+app.use(cors({
+  origin: "*", // allow all for now
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 app.use(express.json())
 app.use(express.static("dist"))
 // routes
